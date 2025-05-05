@@ -1,0 +1,152 @@
+---
+title: "MultivariateAnalysis"
+output:
+  html_document: default
+  pdf_document: default
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Beer data
+
+
+cost is representing..
+
+
+```{r}
+
+```
+We are importing the 'beer.txt' data. Please check and change your path accordingly. The default folder is the github repository "C:\Users\cgranadamunoz\OneDrive - Universiteit Antwerpen\Codes_UA\multivariate_statistics"
+
+
+```{r }
+#Import the data. Change to your own path!!
+Beer <- read.csv("C:\\Users\\cgranadamunoz\\OneDrive - Universiteit Antwerpen\\Codes_UA\\multivariate_statistics\\Beer.txt")
+#Visualization of the data. 2 ways...
+View(Beer)
+head(Beer, 5) #By default head is showing only 6 rows of the file
+
+#Descriptive statistics. First check which type of data we have.
+summary(Beer)
+#Where is this Na's are? use this function
+colSums(is.na(Beer))
+missings <- colSums(is.na(Beer))
+summary(missings)
+
+#visualization of the data to determine normality. 3 methods
+hist(Beer$cost)
+#if in shapiro p value is very low, is not normal
+shapiro.test(Beer$cost)
+#look the dispersion of the data. Association...
+plot(Beer$cost, Beer$reputat)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+```{r}
+
+```
+
+```{r, echo=FALSE}
+
+library(RcmdrMisc)
+
+rcorr.adjust(Beer)
+
+Beer2 <- na.omit(Beer)
+r <- rcorr.adjust
+corPlot(r$R$r,numbers = TRUE, stars = TRUE, diag = FALSE, val = r$R$P)
+rcorr.adjust(Beer2)
+
+```
+
+## KMO Test
+Kaiser provided the following values for interpreting the results:
+
+* 0.00 to 0.49 unacceptable
+* 0.50 to 0.59 miserable
+* 0.60 to 0.69 mediocre
+* 0.70 to 0.79 middling
+* 0.80 to 0.89 meritorious
+* 0.90 to 1.00 marvelous
+
+```{r}
+
+library(psych)
+KMO(Beer2)
+
+```
+```{r}
+
+BeerClean <- Beer2[, KMO(Beer2)$MSAi > 0.515] # Get rid of all variables with MSA < 0.50
+
+KMO(BeerClean)$MSAi
+round( KMO(BeerClean)$MSA, 2 )
+
+```
+
+```{r}
+library(psych)
+cortest.bartlett(BeerClean)
+
+```
+PCA to establish the numbers of PCA by the elbow rule
+
+
+```{r}
+scree(Beer, pc=FALSE) 
+scree(BeerClean, pc=FALSE) 
+
+```
+```{r}
+ev <- eigen(cor(BeerClean)) # get eigenvalues
+ev$values
+```
+
+```{r}
+fa.parallel(BeerClean, fa="fa")
+```
+```{r}
+Nfacs <- 2 # This is for four factors. You can change this as needed.
+
+fit <- factanal(BeerClean, Nfacs, rotation="promax")
+
+
+print(fit, digits=2, cutoff=0.3, sort=TRUE)
+```
+
+```{r}
+load <- fit$loadings[,1:2]
+plot(load,type="p") # set up plot
+text(load,labels=names(BeerClean),cex=.7)
+
+```
+```{r}
+library(psych)
+
+loads <- fit$loadings
+
+fa.diagram(loads)
+```
+
+
+```{r}
+
+dim(fit$loadings)
+
+round(fit$loadings[1:6,], 2)
+```
+
+
+```{r}
+FactorLoadings <- round(fit$loadings[1:6,], 2)
+
+write.csv(FactorLoadings, file="FacLoads.csv")
+```
+
+
