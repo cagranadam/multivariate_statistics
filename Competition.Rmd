@@ -1,0 +1,145 @@
+---
+title: "Competition I. Multivariate Statistics"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Competition I. 
+
+Download protein.txt data.
+Data is about protein consumption in 25 European countries for nine food groups: Red Meat, White Meat, Eggs, Milk, Fish, Cereals, Strach, Nuts, Fruits and Vegetables.
+
+### Research question: How food consumption is grouped? How many groups are there?  
+
+# Steps to do:
+
+### 1. Import the data
+
+```{r}
+
+protein <- read.csv("C:\\Users\\cgranadamunoz\\OneDrive - Universiteit Antwerpen\\Codes_UA\\multivariate_statistics\\protein.txt", dec=",")
+head(protein)
+
+```
+
+Look at the data, which variables are categorical, which are numerical? 
+Only Country is categorical, the rest numerical.
+
+### 2. Check for normality
+
+To check normality you can do in several ways: drawing histogram or calculation shapiro wilk test.
+
+```{r}
+#Descriptive statistics. First check which type of data we have.
+summary(protein)
+#Where is this Na's are? use this function
+colSums(is.na(protein))
+missings <- colSums(is.na(protein))
+summary(missings)
+#no missings
+#visualization of the data to determine normality. 3 methods
+#for cicle to iterate throught the numeric columns
+protein2 <- protein[, 2:10]
+for (col in names(protein2)){
+  hist(protein2[[col]])
+  }
+  
+
+hist(protein$RedMeat)
+hist(protein$Fish)
+#if in shapiro p value is very low, is not normal
+shapiro.test(protein$RedMeat)
+
+for (col in names(protein2)) {
+  cat("Variable:", col, "\n")
+  print(shapiro.test(protein2[[col]]))
+  cat("\n")
+}
+
+
+```
+
+### 3. Plot associations between Red Meat and White Meat consuption
+
+```{r}
+
+plot( protein$RedMeat , protein$WhiteMeat)
+
+```
+
+
+### 4. Calculate correlations between all 9 variables
+
+Before you calculate all to all correlations, please choose a subset of only numerical data first.
+Create a new dataframe that has all observations (rows) but only numerical variables (columns) from the second till the last.
+
+You can find this information in HELP:
+If data are not normaly distributed, you can choose Spearman correlation.
+Pearson is a default option.
+If you have missing data, you can also choose how you want to deal with missing data (paierwise or to take only full complete cases). Observations are filtered for missing data, and only complete observations are used as default option.
+
+rcorr.adjust(x, type = c("pearson", "spearman"), 
+	use=c("complete.obs", "pairwise.complete.obs"))
+
+To do: Plot correlation matrix with the correlation values on top visible.
+
+```{r}
+
+# !!!!! Tip. you can change it in your way
+protein2 <- protein[, 2:10]
+
+library(RcmdrMisc)
+rcorr.adjust(protein2)
+r <- rcorr.adjust(protein2, type = "pearson", use = "complete.obs")
+
+library(psych)
+corPlot(r$R$r, numbers=FALSE)
+
+```
+
+### 5. Calculate variances
+
+We have now 9 variables, so PCA will calculate 9 PCs. 
+We can see how much variance is explained by each component. Check Cumulative Proportion!
+
+if you choose loadings = T, you can see the weights of each variable in linear regression that explains PCs.
+
+```{r}
+library(stats)
+pca.cov = princomp(protein2,cor = TRUE)  # By default, it uses the covariance matrix to perform PCA
+# if you want to use correlations add cor = TRUE
+
+summary(pca.cov, loadings = T)
+biplot(pca.cov)
+
+```
+
+### 6. Draw a scree plot
+
+Elbow rule to decide on a number of components
+
+```{r}
+
+scree(protein2,pc=FALSE)
+
+```
+
+### 7. Calculate eigen values
+
+Eigenvalues above 1 also indicate importance of components.
+
+```{r}
+
+ev <- eigen(cor(pca.cov)) # get eigenvalues
+ev$values
+
+```
+
+Finally, what is your take away message from the exercise? 
+ How food consumption is grouped? How many groups are there?  
+Answering the research question the proteins food consumption are categorized in two main groups. Animal origin protein vs vegetable origin protein. So the Groups could being categorized in [RedMeat,WhiteMeat,Eggs,Milk,Fish] and [Cereals,Starch,Nuts,Fr.Veg]
