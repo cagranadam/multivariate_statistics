@@ -93,7 +93,7 @@ round( KMO(BeerClean)$MSA, 2 )
 ```{r}
 library(psych)
 cortest.bartlett(BeerClean)
-
+#If p-value is less than p<0.05 we reject null hypothesis there are no common factors in my data. We accept alternative hypothesis, that are common factors. 
 ```
 PCA to establish the numbers of PCA by the elbow rule
 
@@ -111,13 +111,18 @@ ev$values
 ```{r}
 fa.parallel(BeerClean, fa="fa")
 ```
+
+
+
+
 ```{r}
-Nfacs <- 2 # This is for four factors. You can change this as needed.
+Nfacs <- 3 # This is for factors. You can change this as needed.
 
-fit <- factanal(BeerClean, Nfacs, rotation="promax")
-
+fit <- factanal(Beer2, Nfacs, rotation="promax")
+#You can change the rotation, the default is Varimax
 
 print(fit, digits=2, cutoff=0.3, sort=TRUE)
+#Uniquenesses need to be low values
 ```
 
 ```{r}
