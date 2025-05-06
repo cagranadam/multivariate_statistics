@@ -70,8 +70,7 @@ for (col in names(soda2)){
 library(RcmdrMisc)
 library(psych)
 r <- rcorr.adjust(soda2, type = "pearson", use = "complete.obs")
-corPlot(r$R$r, numbers = FALSE, stars = TRUE, diag = FALSE)
-rcorr.adjust(soda2)
+corPlot(r$R$r, numbers = TRUE, stars = TRUE, diag = FALSE)
 
 ```
 
@@ -112,7 +111,7 @@ scree(soda2, pc=FALSE)
 ```
 Two factos based in the result of the plot.
 ## Check the eigenvalues
- The eigenvalues needs to be higher to categorize the data. But how much is higher?
+ The eigenvalues needs to be higher to categorize the data. But how much is higher? Above 1!!
  
 ```{r}
 ev <- eigen(cor(soda2)) # get eigenvalues
