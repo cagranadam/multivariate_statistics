@@ -1,0 +1,174 @@
+---
+title: "soda_data"
+author: "cagranadam"
+date: "2025-05-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Upload data
+
+upload soda data
+
+```{r}
+soda <- read.csv("C:\\Users\\cgranadamunoz\\OneDrive - Universiteit Antwerpen\\Codes_UA\\multivariate_statistics\\soda.txt")
+View(soda)
+```
+
+## Only analyse numerical variables
+
+```{r}
+soda2 <- soda[,3:12]
+View(soda2)
+```
+
+## Summary statitics
+
+```{r}
+summary(soda2)
+```
+
+## Determine normality by 3 methods
+
+```{r}
+
+```
+
+### Histograms
+
+```{r}
+for (col in names(soda2)) {
+  hist(soda2[[col]], main = col)
+}
+```
+
+### Shapiro
+
+```{r}
+for (col in names(soda2)){
+  cat("Variable:", col, "\n")
+  print(shapiro.test(soda2[[col]]))
+  }
+```
+
+## Correlation
+
+```{r}
+library(RcmdrMisc)
+library(psych)
+r <- rcorr.adjust(soda2, type = "pearson", use = "complete.obs")
+corPlot(r$R$r, numbers = FALSE, stars = TRUE, diag = FALSE)
+rcorr.adjust(soda2)
+
+```
+
+## KMO Test
+Kaiser provided the following values for interpreting the results:
+
+* 0.00 to 0.49 unacceptable
+* 0.50 to 0.59 miserable
+* 0.60 to 0.69 mediocre
+* 0.70 to 0.79 middling
+* 0.80 to 0.89 meritorious
+* 0.90 to 1.00 marvelous
+
+```{r}
+
+library(psych)
+KMO(soda2)
+
+```
+### Clean the data based in that... all are high so it is ok:
+```{r}
+
+sodaClean <- soda2[, KMO(soda2)$MSAi > 0.515] # Get rid of all variables with MSA < 0.50
+
+KMO(sodaClean)$MSAi
+round( KMO(sodaClean)$MSA, 2 )
+```
+## Test of numbers of Factors. 
+  * If p-value is less than p<0.05 we reject null hypothesis there are no common factors in my data. We accept alternative hypothesis, that are common factors.
+```{r}
+library(psych)
+cortest.bartlett(BeerClean)
+```
+### Scree plots
+ 
+```{r}
+scree(soda2, pc=FALSE) 
+```
+Two factos based in the result of the plot.
+## Check the eigenvalues
+ The eigenvalues needs to be higher to categorize the data. But how much is higher?
+ 
+```{r}
+ev <- eigen(cor(soda2)) # get eigenvalues
+ev$values
+```
+
+```{r}
+fa.parallel(soda2, fa="fa")
+```
+Parallel analysis suggests that the number of factors =  3  and the number of components =  NA 
+## Factor analysis
+```{r}
+
+Nfacs <- 3 # This is for factors. You can change this as needed.
+
+fit <- factanal(soda2, Nfacs, rotation="varimax")
+#You can change the rotation, the default is Varimax
+
+print(fit, digits=2, cutoff=0.3, sort=TRUE)
+#Uniquenesses need to be low values
+
+```
+Since p = 0.804 > 0.05, you fail to reject the null hypothesis
+So: 3 factors are a statistically adequate solution
+
+### Check the graphs of loadings
+
+```{r}
+load <- fit$loadings[,1:2]
+plot(load,type="p") # set up plot
+text(load,labels=names(soda2),cex=.7)
+```
+
+```{r}
+library(psych)
+
+loads <- fit$loadings
+
+fa.diagram(loads)
+```
+Factors numbers
+
+```{r}
+dim(fit$loadings)
+
+round(fit$loadings[1:10,], 2)
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
