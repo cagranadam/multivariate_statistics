@@ -1,0 +1,92 @@
+country,character,freq
+France,stylish,37
+France,arrogant,29
+France,sexy,21
+France,devious,19
+France,easy-going,10
+France,greedy,10
+France,cowardly,8
+France,boring,8
+France,efficient,6
+France,lazy,6
+France,hard-working,5
+France,clever,2
+France,courageous,1
+Spain,stylish,7
+Spain,arrogant,14
+Spain,sexy,8
+Spain,devious,9
+Spain,easy-going,27
+Spain,greedy,7
+Spain,cowardly,3
+Spain,boring,7
+Spain,efficient,3
+Spain,lazy,23
+Spain,hard-working,12
+Spain,clever,1
+Spain,courageous,3
+Italy,stylish,30
+Italy,arrogant,12
+Italy,sexy,19
+Italy,devious,10
+Italy,easy-going,20
+Italy,greedy,7
+Italy,cowardly,12
+Italy,boring,6
+Italy,efficient,5
+Italy,lazy,13
+Italy,hard-working,10
+Italy,clever,1
+Italy,courageous,2
+United Kingdom,stylish,9
+United Kingdom,arrogant,14
+United Kingdom,sexy,4
+United Kingdom,devious,6
+United Kingdom,easy-going,27
+United Kingdom,greedy,12
+United Kingdom,cowardly,2
+United Kingdom,boring,13
+United Kingdom,efficient,26
+United Kingdom,lazy,16
+United Kingdom,hard-working,29
+United Kingdom,clever,6
+United Kingdom,courageous,25
+Ireland,stylish,1
+Ireland,arrogant,7
+Ireland,sexy,1
+Ireland,devious,16
+Ireland,easy-going,30
+Ireland,greedy,3
+Ireland,cowardly,10
+Ireland,boring,9
+Ireland,efficient,5
+Ireland,lazy,11
+Ireland,hard-working,22
+Ireland,clever,2
+Ireland,courageous,27
+Netherlands,stylish,5
+Netherlands,arrogant,4
+Netherlands,sexy,2
+Netherlands,devious,2
+Netherlands,easy-going,15
+Netherlands,greedy,2
+Netherlands,cowardly,0
+Netherlands,boring,13
+Netherlands,efficient,24
+Netherlands,lazy,1
+Netherlands,hard-working,28
+Netherlands,clever,4
+Netherlands,courageous,6
+Germany,stylish,4
+Germany,arrogant,48
+Germany,sexy,1
+Germany,devious,12
+Germany,easy-going,3
+Germany,greedy,9
+Germany,cowardly,2
+Germany,boring,11
+Germany,efficient,41
+Germany,lazy,1
+Germany,hard-working,38
+Germany,clever,8
+Germany,courageous,8

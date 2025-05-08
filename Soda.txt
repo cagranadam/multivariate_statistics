@@ -1,0 +1,96 @@
+person,Brand,X1 Refreshing taste,X2 Fewer calories,X3 Quenches thirst,X4 Sweet taste,X5 Energy,X6 Environmentally friendly packaging,X7 Minerals and vitamins,X8 Unique flavor,X9 Healthy,X10 For when very thirsty
+Person 1,Brand 1,4,3,5,3,3,7,5,3,3,4
+Person 1,Brand 2,5,2,4,3,2,5,4,5,2,4
+Person 1,Brand 3,4,5,6,4,5,4,6,4,5,5
+Person 1,Brand 4,4,5,5,5,5,4,6,4,5,6
+Person 1,Brand 5,7,6,6,6,7,5,5,6,6,5
+Person 1,Brand 6,7,3,5,6,3,5,5,6,3,5
+Person 2,Brand 1,7,4,4,6,4,5,5,7,4,5
+Person 2,Brand 2,5,2,5,6,2,5,5,5,3,5
+Person 2,Brand 3,4,5,7,3,4,4,7,3,5,7
+Person 2,Brand 4,5,6,6,4,5,4,6,4,6,7
+Person 2,Brand 5,7,5,5,7,6,5,4,6,5,5
+Person 2,Brand 6,7,4,5,7,5,4,5,6,5,4
+Person 3,Brand 1,5,2,2,6,1,5,3,6,1,2
+Person 3,Brand 2,4,2,4,3,2,4,4,4,2,3
+Person 3,Brand 3,2,4,7,2,5,5,6,3,4,7
+Person 3,Brand 4,2,3,3,1,2,5,5,2,3,5
+Person 3,Brand 5,5,7,6,5,7,6,6,5,6,6
+Person 3,Brand 6,6,4,5,7,4,5,5,7,4,5
+Person 4,Brand 1,4,3,3,5,2,6,3,5,3,3
+Person 4,Brand 2,6,2,2,7,1,6,2,6,1,2
+Person 4,Brand 3,3,5,6,3,5,5,5,3,5,6
+Person 4,Brand 4,5,4,5,4,4,6,5,5,4,5
+Person 4,Brand 5,7,5,5,7,5,4,5,7,5,5
+Person 4,Brand 6,7,5,5,7,6,4,5,6,5,5
+Person 5,Brand 1,6,2,1,5,2,4,1,6,1,2
+Person 5,Brand 2,7,3,4,6,2,4,4,7,2,4
+Person 5,Brand 3,2,4,7,4,4,5,7,4,4,7
+Person 5,Brand 4,4,4,7,4,4,6,7,4,3,6
+Person 5,Brand 5,6,5,4,6,5,5,5,5,5,5
+Person 5,Brand 6,6,5,5,7,5,5,5,6,5,5
+Person 6,Brand 1,6,4,2,5,3,6,1,6,4,2
+Person 6,Brand 2,6,3,4,5,3,4,3,6,3,4
+Person 6,Brand 3,5,6,6,4,5,6,6,5,6,6
+Person 6,Brand 4,1,4,5,1,4,5,6,1,4,5
+Person 6,Brand 5,6,5,5,5,5,5,5,6,5,5
+Person 6,Brand 6,7,6,4,6,6,5,4,6,6,4
+Person 7,Brand 1,5,2,4,5,1,5,4,5,2,5
+Person 7,Brand 2,4,2,5,6,3,3,5,6,3,4
+Person 7,Brand 3,3,5,6,3,5,6,7,3,5,7
+Person 7,Brand 4,3,5,7,3,4,5,7,3,5,6
+Person 7,Brand 5,7,5,5,7,6,5,5,7,6,6
+Person 7,Brand 6,7,3,4,7,2,5,5,7,3,5
+Person 8,Brand 1,6,2,4,7,2,6,4,6,2,4
+Person 8,Brand 2,5,2,3,5,1,6,3,5,2,3
+Person 8,Brand 3,4,5,5,4,5,5,6,5,6,6
+Person 8,Brand 4,4,3,7,4,4,4,7,3,3,6
+Person 8,Brand 5,7,5,5,7,5,5,4,7,6,5
+Person 8,Brand 6,5,6,5,6,6,4,5,5,7,6
+Person 9,Brand 1,5,1,5,6,1,6,5,5,2,5
+Person 9,Brand 2,5,1,3,5,1,7,3,5,1,4
+Person 9,Brand 3,4,5,6,4,5,5,6,4,5,6
+Person 9,Brand 4,4,3,5,3,3,3,5,3,4,5
+Person 9,Brand 5,7,6,6,7,6,4,6,7,6,6
+Person 9,Brand 6,6,6,4,7,6,4,4,7,6,5
+Person 10,Brand 1,6,3,3,6,2,7,3,6,3,3
+Person 10,Brand 2,4,1,6,5,2,5,5,4,2,5
+Person 10,Brand 3,3,5,6,2,4,4,5,3,4,5
+Person 10,Brand 4,3,3,6,3,3,5,6,3,4,6
+Person 10,Brand 5,6,6,4,6,7,6,4,6,7,3
+Person 10,Brand 6,5,5,6,4,5,5,6,5,6,6
+Person 11,Brand 1,5,1,4,5,2,4,4,5,2,4
+Person 11,Brand 2,5,4,4,5,4,6,4,6,4,5
+Person 11,Brand 3,3,6,6,2,6,3,6,3,6,6
+Person 11,Brand 4,4,3,6,3,3,5,5,4,3,6
+Person 11,Brand 5,6,6,4,5,6,4,4,5,6,4
+Person 11,Brand 6,6,5,6,6,5,6,5,7,5,5
+12,Brand 1,7,2,1,6,2,5,1,7,2,1
+12,Brand 2,6,2,4,4,1,3,4,4,2,4
+12,Brand 3,4,5,7,5,5,4,7,5,5,6
+12,Brand 4,3,4,4,3,4,4,5,3,4,5
+12,Brand 5,6,4,4,6,4,5,4,5,5,4
+12,Brand 6,6,6,4,6,5,5,5,6,5,5
+13,Brand 1,5,5,3,3,5,4,3,3,4,4
+13,Brand 2,6,2,3,7,2,5,3,6,2,3
+13,Brand 4,5,4,6,4,5,4,5,5,5,6
+13,Brand 5,7,4,5,7,4,4,5,7,4,5
+13,Brand 6,6,6,5,7,6,5,5,7,6,5
+14,Brand 1,5,2,3,4,3,5,4,4,3,4
+14,Brand 2,4,3,3,5,3,5,4,5,2,4
+14,Brand 4,3,4,6,3,3,5,6,3,4,6
+14,Brand 5,7,7,5,6,7,4,4,6,7,4
+14,Brand 6,5,5,5,6,6,5,5,6,6,4
+15,Brand 1,5,4,2,4,4,4,2,5,4,2
+15,Brand 2,6,1,2,6,1,4,2,7,1,1
+15,Brand 5,6,5,5,6,5,5,5,6,5,5
+15,Brand 6,4,5,5,5,5,4,4,5,5,4
+16,Brand 1,5,3,3,5,2,5,4,6,2,4
+16,Brand 5,4,6,5,3,5,4,5,3,5,5
+16,Brand 6,6,6,4,6,6,5,4,6,6,4
+17,Brand 1,3,3,3,5,2,5,2,5,3,2
+17,Brand 5,6,6,6,5,5,5,6,5,5,5
+17,Brand 6,7,5,5,7,4,5,5,6,4,5
+18,Brand 1,4,4,4,2,3,5,4,4,4,4
+18,Brand 5,4,5,5,5,5,6,5,5,5,5
+18,Brand 6,7,7,5,6,7,5,4,7,7,4
