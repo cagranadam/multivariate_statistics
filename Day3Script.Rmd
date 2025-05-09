@@ -164,6 +164,7 @@ food <- read.csv("https://userpage.fu-berlin.de/soga/data/raw-data/food-texture.
 ## DISCRIMINANT ANALYSIS (I think is tomorrow)
 ## ###################################
 
+
 ```{r, echo=TRUE}
 # Libraries needed
 library(car)
@@ -200,7 +201,8 @@ pairs.panels(iris[1:4],
 ```
 
 ```{r}
-
+#Data here is rotated and easy to analyse.
+#Long format is prefered.
 iris.long <- melt(iris, id.vars = "Species", measure.vars = 1:4)
 
 ```
@@ -336,9 +338,18 @@ We can see that this time, the algorithm did a much better job of clustering the
 We can plot it as follows to compare it with the original data:
 
 ```{r}
+ install.packages('ggplot2')
+library(ggplot2)
+
 ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) + 
   geom_point(alpha = 0.4, size = 3.5) + geom_point(col = clusterCut) + 
   scale_color_manual(values = c('black', 'red', 'green'))
+
+
+#ggplot(iris, aes(Petal.Length, Petal.Width, color = Species)) + 
+#   geom_point(alpha = 0.4, size = 3.5) + 
+#   scale_color_manual(values = c('black', 'red', 'green'))
+
 ```
 All the points where the inner color doesn’t match the outer color are the ones which were clustered incorrectly.
 
