@@ -4,7 +4,6 @@ This repository is intended for personal use to learn and practice multivariate 
 ## Features
 - Multivariate statistical analysis examples and tutorials.
 - Implementations and exercises in R.
-- Resources and notes from the STATUA course.
 
 ## Prerequisites
 - Basic knowledge of statistics.
